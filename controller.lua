@@ -10,6 +10,16 @@ local function wrap(input, min,max)
     end
 end
 
+local function formatText(str, chars)
+    str = tostring(str)
+    if #str > chars then
+        return str:sub(1, chars)
+    else
+        return str .. string.rep(" ", chars - #str)
+    end
+end
+
+
 local function showOptions()
     local file = fs.open("apps.json", "r")
     local jsonStr = file.readAll()
