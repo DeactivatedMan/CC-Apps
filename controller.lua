@@ -56,9 +56,10 @@ while true do
         file.close()
 
         local data = textutils.unserialiseJSON(jsonStr)
+        local entry = data[selected]
 
-        local app = multishell.launch({}, data.cmd)
-        multishell.setTitle(app, data.name)
+        local app = multishell.launch({}, entry.cmd)
+        multishell.setTitle(app, entry.name)
         multishell.setFocus(app)
     end
     showOptions()
