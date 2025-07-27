@@ -23,7 +23,7 @@ write("Attempt update? Y // N\n > ")
 local yn = string.lower(read())
 
 if string.find(yn, "y") then
-    shell.run("wget https://raw.githubusercontent.com/DeactivatedMan/CC-Production/refs/heads/main/controller.lua controllerB.lua")  -- Downloads controller script
-    shell.run("wget https://raw.githubusercontent.com/DeactivatedMan/CC-Production/refs/heads/main/machines.json appsB.json")  -- Downloads machines json
+    shell.run("wget https://raw.githubusercontent.com/DeactivatedMan/CC-Apps/refs/heads/main/controller.lua controllerB.lua")  -- Downloads controller script
+    shell.run("wget https://raw.githubusercontent.com/DeactivatedMan/CC-Apps/refs/heads/main/apps.json appsB.json")  -- Downloads machines json
     write("Updated! (Or did absolutely nothing other than reset the files..)\nrun 'reboot' to initialise\n")
 end
