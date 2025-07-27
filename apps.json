@@ -1,0 +1,4 @@
+[
+    { "name": "Music",       "cmd": "music" },
+    { "name": "Doom",        "cmd": "doom"  }
+]
