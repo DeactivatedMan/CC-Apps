@@ -1,5 +1,13 @@
 local selected = 1
 
+local file = fs.open("apps.json", "r")
+local jsonStr = file.readAll()
+file.close()
+
+local data = textutils.unserialiseJSON(jsonStr)
+
+local count = #data
+
 local function wrap(input, min,max)
     if input < min then
         return max
@@ -19,7 +27,6 @@ local function formatText(str, chars)
     end
 end
 
-
 local function showOptions()
     local file = fs.open("apps.json", "r")
     local jsonStr = file.readAll()
@@ -35,6 +42,8 @@ local function showOptions()
     end
 end
 
+showOptions()
+
 while true do
     local event, key, isHeld = os.pullEvent("key")
     if key == keys.w or key == keys.up then
@@ -48,7 +57,9 @@ while true do
 
         local data = textutils.unserialiseJSON(jsonStr)
 
-        shell.run(data.cmd)
+        local app = multishell.launch({}, data.cmd)
+        multishell.setTitle(app, data.name)
+        multishell.setFocus(app)
     end
     showOptions()
     if isHeld then

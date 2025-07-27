@@ -9,8 +9,9 @@ if fs.exists("appsB.json") then
 end
 
 if fs.exists("controller.lua") then
-    local input = multishell.launch({}, "controller.lua")
-    multishell.setTitle(input, "Controller")
+    local controller = multishell.launch({}, "controller.lua")
+    multishell.setTitle(controller, "Controller")
+    multishell.setFocus(controller)
 end
 
 --[[if fs.exists("output.lua") then
